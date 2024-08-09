@@ -4,7 +4,7 @@ class Solution {
 
         for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
-            if(isDigit(ch)){
+            if(ch>='0'&&ch<='9'){
                 int n = ch - '0';
                 if(n>largest){
                     second = largest;
@@ -18,9 +18,5 @@ class Solution {
         }
         if(largest == second) return -1;
         return second;
-    }
-
-    public boolean isDigit(char c){
-        return c>='0'&&c<='9';
     }
 }
