@@ -4,7 +4,7 @@ class Solution {
         for(String str:words){
             map.put(str,map.getOrDefault(str,0)+1);
         }
-        
+
         int ans = 0;
         for(String str:map.keySet()){
             if(isSubSequence(str,s)){
