@@ -1,22 +1,12 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<List<Integer>> ans = new ArrayList<>();
-        int i = 0;
-        List<Integer> sub = new ArrayList<>();
-        sub.add(1);
-        ans.add(sub);
-        while(i<rowIndex){
-            int j = -1;
-            sub = new ArrayList<>();
-            int n = ans.get(i).size();
-            for(int k=0;k<=n;k++,j++){
-                if(j == -1) sub.add(ans.get(i).get(k));
-                else if(k == n) sub.add(ans.get(i).get(j));
-                else sub.add(ans.get(i).get(k)+ans.get(i).get(j));
-            }
-            ans.add(sub);
-            i++;
+        List<Integer> rowVal = new ArrayList<>();
+        long comb = 1;
+
+        for(int j=0; j<=rowIndex; j++) {
+            rowVal.add((int) comb);
+            comb = comb*(rowIndex - j) / (j + 1);
         }
-        return ans.get(rowIndex);
+        return rowVal;
     }
 }
